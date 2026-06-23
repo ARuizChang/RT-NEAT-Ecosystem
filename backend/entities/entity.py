@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import Tuple
+from typing import Tuple, Dict, Any
 import uuid
 import math
 
@@ -22,7 +22,7 @@ class Entity:
         self.position = (position_x + velocity_x * delta_time, position_y + velocity_y * delta_time)
         self.age += delta_time
 
-    def serialize(self) -> dict:
+    def serialize(self) -> Dict[str, Any]:
         return {
             "id": self.id,
             "position": self.position,
