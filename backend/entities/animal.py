@@ -1,4 +1,4 @@
-from .entity import Entity
+from backend.entities.entity import Entity
 import math
 from typing import Optional
 

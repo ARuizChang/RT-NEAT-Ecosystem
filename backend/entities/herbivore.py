@@ -1,4 +1,4 @@
-from .animal import Animal
+from backend.entities.animal import Animal
 
 class Herbivore(Animal):
     def __init__(self, **kwargs):

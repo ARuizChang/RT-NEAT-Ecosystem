@@ -1,6 +1,6 @@
-from .node_gene import NodeGene
-from .connection_gene import ConnectionGene
-from .innovation import InnovationTracker
+from backend.neural.node_gene import NodeGene
+from backend.neural.connection_gene import ConnectionGene
+from backend.neural.innovation import InnovationTracker
 from typing import List, Dict, Optional
 import random
 
@@ -37,7 +37,7 @@ class Genome:
                     innovation_number=innovation_number,
                     in_node=in_id,
                     out_node=out_id,
-                    weight=random.uniform(-1.0, 1.0)
+                    weight=random.uniform(-1.0, 1.0),
                     enabled=True
                 )
         
@@ -132,7 +132,7 @@ class Genome:
                 in_node=chosen_conn.in_node,
                 out_node=chosen_conn.out_node,
                 weight=chosen_conn.weight,
-                enabled=chosen_conn.enabled
+                enabled=chosen_conn.enabled,
                 recurrent=chosen_conn.recurrent
             )
         

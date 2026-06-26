@@ -1,6 +1,6 @@
-from .node_gene import NodeGene
-from .connection_gene import ConnectionGene
-from .genome import Genome
+from backend.neural.node_gene import NodeGene
+from backend.neural.connection_gene import ConnectionGene
+from backend.neural.genome import Genome
 from typing import List, Dict
 import math
 
@@ -28,8 +28,8 @@ class Network:
                 in_degree[out] -= 1
                 if in_degree[out] == 0:
                     queue.append(out)
-        for node_id in self.genome.nodes:
-            for node_id not in order:
+        for node_id in self.genome.nodes.keys():
+            if node_id not in order:
                 order.append(node_id)
         
         return order

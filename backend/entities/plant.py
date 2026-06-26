@@ -1,4 +1,4 @@
-from .entity import Entity
+from backend.entities.entity import Entity
 
 class Plant(Entity):
     def __init__(self, position=(0.0, 0.0), energy=20.0, regeneration_rate=0.1, max_energy=100.0):
