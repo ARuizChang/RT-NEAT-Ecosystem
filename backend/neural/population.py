@@ -1,6 +1,7 @@
 from backend.neural.genome import Genome
 from backend.neural.species import Species
 from typing import List
+import random
 
 class Population:
     def __init__(self, compatibility_threshold: float = 3.0):
