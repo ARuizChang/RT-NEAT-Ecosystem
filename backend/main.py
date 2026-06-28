@@ -11,6 +11,10 @@ from backend.sensors.observation_builder import ObservationBuilder
 from backend.neural.rtneat import RTNEAT
 from backend.simulation.update_loop import simulate_step
 
+from backend.persistence.checkpoints import save_checkpoint, load_checkpoint
+from backend.persistence.save_population import save_population
+from backend.persistence.load_population import load_population
+
 
 def main():
     world = World(size=(2000, 2000))
@@ -19,9 +23,11 @@ def main():
     rtneat.initialize()
 
     dt = 0.05
-    for tick in range(100000):
+    for tick in range(10000000):
         simulate_step(world, dt, observation_builder, rtneat)
-
+        if tick % 1000000:
+            save_checkpoint(world, rtneat, "data/checkpoints/latest.json")
+    save_population(rtneat, "data/saves/population.json")
 
 if __name__ == "__main__":
     main()
