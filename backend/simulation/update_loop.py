@@ -2,14 +2,10 @@ from backend.simulation.collision import handle_collisions
 from backend.ecology.metabolism import apply_metabolism
 from backend.ecology.death import handle_deaths
 from backend.ecology.reproduction import process_reproduction
-from backend.ecology.feeding import grow_plants, herbivore_feed
+from backend.ecology.feeding import grow_plants
 from backend.sensors.observation_builder import ObservationBuilder
-from backend.neural.network import Network
 from backend.entities.animal import Animal
-from backend.entities.herbivore import Herbivore
-from backend.entities.carnivore import Carnivore
-import random
-from typing import Optional
+
 
 def simulate_step(world, delta_time: float, observation_builder: ObservationBuilder, rtneat=None, broadcaster=None):
     animals = [
